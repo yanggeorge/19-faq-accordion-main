@@ -1,0 +1,107 @@
+/* 1. 所有的 @import 必须排在最前面 */
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700&display=swap");
+@import "tailwindcss";
+
+/* 2. 定义 Tailwind v4 主题变量 */
+@theme {
+  /* --- Colors --- */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-orange-500: hsl(25, 97%, 53%);
+
+  --color-grey-500: hsl(217, 12%, 63%);
+  --color-grey-900: hsl(213, 19%, 18%);
+  --color-grey-950: hsl(216, 12%, 8%);
+
+  /* --- Spacing --- */
+  --spacing-0: 0px;
+  --spacing-100: 8px;
+  --spacing-200: 16px;
+  --spacing-300: 24px;
+  --spacing-400: 32px;
+  --spacing-500: 40px;
+  --spacing-1300: 104px;
+  --spacing-1700: 136px;
+
+  /* --- Default Font --- */
+  --font-default: "Overpass", sans-serif;
+}
+
+/* 3. Typography Logic - 核心拆分点 */
+:root {
+  /* 定义不含行高的基础字体变量 */
+  --font-p1-base: 700 28px var(--font-default);
+  --font-p2-base: 700 24px var(--font-default);
+  --font-p3-base: 700 16px var(--font-default);
+  --font-p4-base: 15px var(--font-default); /* P4 公用大小 */
+  --font-p5-base: 14px var(--font-default); /* P5 公用大小 */
+}
+
+/* 4. 定义 Utility 类名 */
+/* P1 */
+@utility typography-1 {
+  font: var(--font-p1-base);
+  line-height: 35px;
+  letter-spacing: 0px;
+}
+
+/* P2 */
+@utility typography-2 {
+  font: var(--font-p2-base);
+  line-height: 30px;
+  letter-spacing: 0px;
+}
+
+/* P3 */
+@utility typography-3 {
+  font: var(--font-p3-base);
+  line-height: 24px;
+  letter-spacing: 0.2px;
+}
+
+/* P4 系列 */
+@utility typography-4-bold {
+  font: 700 var(--font-p4-base);
+  line-height: 19px;
+  letter-spacing: 2px;
+}
+@utility typography-4-reg {
+  font: 400 var(--font-p4-base);
+  line-height: 24px;
+  letter-spacing: 0px;
+}
+
+/* P5 系列 */
+@utility typography-5-bold {
+  font: 700 var(--font-p5-base);
+  line-height: 18px;
+  letter-spacing: 1.87px;
+}
+@utility typography-5-semi {
+  font: 600 var(--font-p5-base);
+  line-height: 24px;
+  letter-spacing: 0.17px;
+}
+@utility typography-5-reg {
+  font: 400 var(--font-p5-base);
+  line-height: 22px;
+  letter-spacing: 0px;
+}
+@utility rating-circle {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black;
+}
+
+/* 5. 基础样式重置 */
+@layer base {
+  html,
+  body {
+    @apply antialiased;
+    font-family: var(--font-default);
+    background-color: var(--color-black);
+    color: var(--color-white);
+  }
+
+  #root {
+    @apply min-h-svh flex flex-col;
+  }
+}
