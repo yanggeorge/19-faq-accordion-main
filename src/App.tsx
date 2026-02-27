@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       <JotaiDevTools />
-      <main className="flex-1 grid place-items-center bg-black">
+      <main className="flex-1 grid place-items-center bg-faq-layout">
         <div className="w-81.75 p-6 flex flex-col gap-6 bg-white rounded-2xl">
           <div className="flex gap-6 items-center">
             <IconStar class="w-6 h-6" />

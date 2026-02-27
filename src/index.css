@@ -23,6 +23,9 @@
 
   /* --- Default Font --- */
   --font-default: "Work Sans", sans-serif;
+
+  --background-image-top-pattern: url("/images/background-pattern-mobile.svg");
+  --background-image-top-pattern-desktop: url("/images/background-pattern-desktop.svg");
 }
 
 /* 3. Typography Logic - 预设基础变量 */
@@ -77,6 +80,22 @@
   font: var(--font-p6-base);
   line-height: 21px; /* 1.5 * 14px */
   letter-spacing: 0%;
+}
+
+@utility bg-faq-layout {
+  background-color: var(--color-violet-600);
+  background-image: var(--background-image-top-pattern);
+  background-position: top center;
+  background-repeat: no-repeat;
+  /* 如果你的 SVG 是横向拉伸的装饰条，使用 100% 宽度 */
+  background-size: 100% auto;
+
+  /* 当屏幕达到 md 断点时切换变量 */
+  @variant md {
+    background-image: var(--background-image-top-pattern-desktop);
+    /* 桌面端通常 SVG 比较宽，可能需要调整 size 或 position */
+    background-size: 100% auto;
+  }
 }
 
 /* 5. 基础样式重置 */
