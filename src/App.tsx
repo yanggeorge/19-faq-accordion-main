@@ -22,7 +22,7 @@ function App() {
     <>
       <JotaiDevTools />
       <main className="flex-1 grid place-items-center bg-faq-layout">
-        <div className="w-81.75 p-6 flex flex-col gap-6 bg-white rounded-2xl">
+        <div className="w-81.75 p-6 flex flex-col gap-6 bg-white rounded-2xl md:w-150">
           <div className="flex gap-6 items-center">
             <IconStar class="w-6 h-6" />
             <h1 className="text-purple-950 typography-p4">FAQs</h1>
@@ -39,11 +39,8 @@ function App() {
                   {({ open }) => {
                     return (
                       <>
-                        <DisclosureButton
-                          as="div"
-                          className="flex gap-6 cursor-pointer justify-between items-center"
-                        >
-                          <h2 className="typography-p5 text-purple-950">
+                        <DisclosureButton className="flex gap-6 cursor-pointer justify-between items-center text-purple-950 hover:text-violet-600">
+                          <h2 className="typography-p5 text-left">
                             {item.question}
                           </h2>
                           {open ? (
