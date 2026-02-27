@@ -1,5 +1,5 @@
 /* 1. 所有的 @import 必须排在最前面 */
-@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap");
 @import "tailwindcss";
 
 /* 2. 定义 Tailwind v4 主题变量 */
@@ -7,88 +7,76 @@
   /* --- Colors --- */
   --color-white: #ffffff;
   --color-black: #000000;
-  --color-orange-500: hsl(25, 97%, 53%);
 
-  --color-grey-500: hsl(217, 12%, 63%);
-  --color-grey-900: hsl(213, 19%, 18%);
-  --color-grey-950: hsl(216, 12%, 8%);
+  --color-purple-100: #f8eeff;
+  --color-purple-600: #8b6990;
+  --color-purple-950: #301534;
+
+  --color-violet-600: #ad28eb;
 
   /* --- Spacing --- */
-  --spacing-0: 0px;
   --spacing-100: 8px;
   --spacing-200: 16px;
   --spacing-300: 24px;
   --spacing-400: 32px;
   --spacing-500: 40px;
-  --spacing-1300: 104px;
-  --spacing-1700: 136px;
 
   /* --- Default Font --- */
-  --font-default: "Overpass", sans-serif;
+  --font-default: "Work Sans", sans-serif;
 }
 
-/* 3. Typography Logic - 核心拆分点 */
+/* 3. Typography Logic - 预设基础变量 */
 :root {
-  /* 定义不含行高的基础字体变量 */
-  --font-p1-base: 700 28px var(--font-default);
-  --font-p2-base: 700 24px var(--font-default);
-  --font-p3-base: 700 16px var(--font-default);
-  --font-p4-base: 15px var(--font-default); /* P4 公用大小 */
-  --font-p5-base: 14px var(--font-default); /* P5 公用大小 */
+  --font-p1-base: 700 56px var(--font-default);
+  --font-p2-base: 600 18px var(--font-default);
+  --font-p3-base: 400 16px var(--font-default);
+  --font-p4-base: 700 32px var(--font-default); /* Card Title */
+  --font-p5-base: 600 16px var(--font-default); /* FAQ Question */
+  --font-p6-base: 400 14px var(--font-default); /* FAQ Answer */
 }
 
-/* 4. 定义 Utility 类名 */
-/* P1 */
-@utility typography-1 {
+/* 4. 定义 Typography Utility 类名 */
+
+/* Text Preset 1 - Bold 56px */
+@utility typography-p1 {
   font: var(--font-p1-base);
-  line-height: 35px;
-  letter-spacing: 0px;
+  line-height: 66px;
+  letter-spacing: 0%;
 }
 
-/* P2 */
-@utility typography-2 {
+/* Text Preset 2 - SemiBold 18px */
+@utility typography-p2 {
   font: var(--font-p2-base);
-  line-height: 30px;
-  letter-spacing: 0px;
+  line-height: 21px;
+  letter-spacing: 0%;
 }
 
-/* P3 */
-@utility typography-3 {
+/* Text Preset 3 - Regular 16px */
+@utility typography-p3 {
   font: var(--font-p3-base);
   line-height: 24px;
-  letter-spacing: 0.2px;
+  letter-spacing: 0%;
 }
 
-/* P4 系列 */
-@utility typography-4-bold {
-  font: 700 var(--font-p4-base);
+/* Text Preset 4 - Bold 32px (Card Title) */
+@utility typography-p4 {
+  font: var(--font-p4-base);
+  line-height: 38px;
+  letter-spacing: 0%;
+}
+
+/* Text Preset 5 - SemiBold 16px (FAQ Question) */
+@utility typography-p5 {
+  font: var(--font-p5-base);
   line-height: 19px;
-  letter-spacing: 2px;
-}
-@utility typography-4-reg {
-  font: 400 var(--font-p4-base);
-  line-height: 24px;
-  letter-spacing: 0px;
+  letter-spacing: 0%;
 }
 
-/* P5 系列 */
-@utility typography-5-bold {
-  font: 700 var(--font-p5-base);
-  line-height: 18px;
-  letter-spacing: 1.87px;
-}
-@utility typography-5-semi {
-  font: 600 var(--font-p5-base);
-  line-height: 24px;
-  letter-spacing: 0.17px;
-}
-@utility typography-5-reg {
-  font: 400 var(--font-p5-base);
-  line-height: 22px;
-  letter-spacing: 0px;
-}
-@utility rating-circle {
-  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black;
+/* Text Preset 6 - Regular 14px (FAQ Answer) */
+@utility typography-p6 {
+  font: var(--font-p6-base);
+  line-height: 21px; /* 1.5 * 14px */
+  letter-spacing: 0%;
 }
 
 /* 5. 基础样式重置 */
@@ -97,10 +85,11 @@
   body {
     @apply antialiased;
     font-family: var(--font-default);
-    background-color: var(--color-black);
-    color: var(--color-white);
+    background-color: var(--color-white);
+    color: var(--color-black);
   }
 
+  /* 习惯性重置，确保布局占满全屏 */
   #root {
     @apply min-h-svh flex flex-col;
   }
